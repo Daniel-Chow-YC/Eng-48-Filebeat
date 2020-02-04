@@ -11,6 +11,15 @@ unless os.windows?
 end
 
 # This is an example test, replace it with your own test.
-describe port(80), :skip do
+describe port(80) do #, :skip do
   it { should_not be_listening }
+end
+
+describe package ('filebeat') do
+  it { should be_installed }
+end
+
+describe service 'filebeat' do
+  it { should be_running }
+  it {should be_enabled}
 end
