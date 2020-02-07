@@ -26,3 +26,7 @@ end
 execute 'enable filebeat.service' do
   command 'sudo systemctl enable filebeat.service'
 end
+
+execute 'start filebeat each time the machine reboots' do
+  command 'sudo update-rc.d filebeat defaults 95 10'
+end
